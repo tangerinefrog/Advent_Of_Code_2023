@@ -9,10 +9,10 @@ import (
 )
 
 var digits = []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
-var filename = "input_day_one"
 
 func DayOnePartOne() {
-	lines := GetFileContent()
+	var filename = "input_day_one"
+	lines := GetFileLines(filename)
 
 	sum := 0
 	for i := 0; i < len(lines); i++ {
@@ -43,7 +43,8 @@ func DayOnePartOne() {
 }
 
 func DayOnePartTwo() {
-	lines := GetFileContent()
+	var filename = "input_day_one"
+	lines := GetFileLines(filename)
 
 	sum := 0
 
@@ -106,13 +107,13 @@ func FindLastDigit(line string) int {
 	return result
 }
 
-func GetFileContent() []string {
+func GetFileLines(filename string) []string {
 	fileBytes, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
-	content := string(fileBytes)
+	content := strings.TrimRight(string(fileBytes), "\n")
 	return strings.Split(content, "\n")
 }
