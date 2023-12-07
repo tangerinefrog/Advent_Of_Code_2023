@@ -9,7 +9,7 @@ import (
 )
 
 var digits = []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
-var filename = "input_dayOne"
+var filename = "input_day_one"
 
 func DayOnePartOne() {
 	lines := GetFileContent()
