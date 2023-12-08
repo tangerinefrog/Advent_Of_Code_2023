@@ -5,4 +5,5 @@ func main() {
 	DayOnePartTwo()
 
 	DayTwoPartOne()
+	DayTwoPartTwo()
 }
