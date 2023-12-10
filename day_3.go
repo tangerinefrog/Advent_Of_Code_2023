@@ -53,7 +53,7 @@ func DayThreePartTwo() {
 
 	for _, pos := range gearPositions {
 		ratio := GetGearRatio(pos, lineNums, lineCount)
-		if ratio > 0{
+		if ratio > 0 {
 			sum += ratio
 		}
 	}
@@ -70,7 +70,7 @@ func GetLineNumbers(line string) (nums []LineNumber) {
 
 		if unicode.IsDigit(c) {
 			buf = append(buf, c)
-			if i == len(line) - 1 {
+			if i == len(line)-1 {
 				num, _ := strconv.Atoi(string(buf))
 				nums = append(nums, LineNumber{Num: num, StartIndex: i - len(buf), Length: len(buf)})
 			}
@@ -98,12 +98,12 @@ func GetGears(lines []string) (positions []Position) {
 
 func GetGearRatio(gearPos Position, lineNums map[int][]LineNumber, lineCount int) int {
 	gearNums := make([]int, 0)
-	
-	for row := gearPos.row - 1; row <= gearPos.row + 1; row++ {
+
+	for row := gearPos.row - 1; row <= gearPos.row+1; row++ {
 		if row >= 0 && row < lineCount {
 			nums := lineNums[row]
 			for _, num := range nums {
-				if(num.StartIndex <= gearPos.col + 1 && num.StartIndex + num.Length - 1 >= gearPos.col - 1){
+				if num.StartIndex <= gearPos.col+1 && num.StartIndex+num.Length-1 >= gearPos.col-1 {
 					gearNums = append(gearNums, num.Num)
 				}
 			}
@@ -127,7 +127,7 @@ func HasAdjacentSymbols(num LineNumber, lines *[]string, curRow int, lineLen int
 	}
 
 	for runeInd := leftMargin; runeInd <= rightMargin; runeInd++ {
-		for row := curRow - 1; row <= curRow + 1; row++ {
+		for row := curRow - 1; row <= curRow+1; row++ {
 			if row >= 0 && row < lineCount {
 				if IsSymbol(rune((*lines)[row][runeInd])) {
 					return true

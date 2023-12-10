@@ -63,7 +63,7 @@ func IsGroupImpossible(group string) bool {
 	return false
 }
 
-func GetGamePowers(groups []string) int {	
+func GetGamePowers(groups []string) int {
 	restrictionsCopy := make(map[string]int)
 	for key := range restrictions {
 		restrictionsCopy[key] = 0
