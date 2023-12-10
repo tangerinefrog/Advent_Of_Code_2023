@@ -7,6 +7,11 @@ import (
 	"unicode"
 )
 
+type Card struct {
+	Points int
+	Count  int
+}
+
 func DayFourPartOne() {
 	lines := GetFileLines("input_day_4")
 
@@ -17,6 +22,28 @@ func DayFourPartOne() {
 	}
 
 	fmt.Printf("Day 4 - Part 1 result: %d\n", sum)
+}
+
+func DayFourPartTwo() {
+	lines := GetFileLines("input_day_4")
+
+	sum := 0
+	cards := make([]Card, 0)
+	for _, line := range lines {
+		card := Card{}
+		wn, gn := ParseGameNumbers(line)
+		card.Points = GetGameNextCardsCount(wn, gn)
+		card.Count = 1
+		cards = append(cards, card)
+	}
+
+	CountCardCopies(&cards)
+
+	for _, card := range cards {
+		sum += card.Count
+	}
+
+	fmt.Printf("Day 4 - Part 2 result: %d\n", sum)
 }
 
 func ParseGameNumbers(line string) (winNums []int, gameNums []int) {
@@ -44,6 +71,31 @@ func GetGamePoints(winNums []int, gameNums []int) (points int) {
 	}
 
 	return
+}
+
+func GetGameNextCardsCount(winNums []int, gameNums []int) (points int) {
+	points = 0
+	for _, winNum := range winNums {
+		for _, gameNum := range gameNums {
+			if winNum == gameNum {
+				points++
+			}
+		}
+	}
+
+	return
+}
+
+func CountCardCopies(cards *[]Card) {
+	for cardInd, card := range *cards {
+		for i := 0; i < card.Count; i++ {
+			for j := 0; j < card.Points; j++ {
+				if cardInd+j+1 < len(*cards) {
+					(*cards)[cardInd+j+1].Count++
+				}
+			}
+		}
+	}
 }
 
 func GetNumbers(line string) (result []int) {
