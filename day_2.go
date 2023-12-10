@@ -9,7 +9,7 @@ import (
 var restrictions = map[string]int{"red": 12, "green": 13, "blue": 14}
 
 func DayTwoPartOne() {
-	var filename = "input_day_two"
+	var filename = "input_day_2"
 
 	sum := 0
 	lines := GetFileLines(filename)
@@ -36,7 +36,7 @@ func DayTwoPartOne() {
 }
 
 func DayTwoPartTwo() {
-	var filename = "input_day_two"
+	var filename = "input_day_2"
 
 	sum := 0
 	lines := GetFileLines(filename)

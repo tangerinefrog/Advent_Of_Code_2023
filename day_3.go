@@ -18,7 +18,7 @@ type Position struct {
 }
 
 func DayThreePartOne() {
-	filename := "input_day_three"
+	filename := "input_day_3"
 	lines := GetFileLines(filename)
 
 	lineLen := len(lines[0])
@@ -38,7 +38,7 @@ func DayThreePartOne() {
 }
 
 func DayThreePartTwo() {
-	filename := "input_day_three"
+	filename := "input_day_3"
 	lines := GetFileLines(filename)
 
 	lineCount := len(lines)

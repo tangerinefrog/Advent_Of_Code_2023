@@ -11,7 +11,7 @@ import (
 var digits = []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
 
 func DayOnePartOne() {
-	var filename = "input_day_one"
+	var filename = "input_day_1"
 	lines := GetFileLines(filename)
 
 	sum := 0
@@ -43,7 +43,7 @@ func DayOnePartOne() {
 }
 
 func DayOnePartTwo() {
-	var filename = "input_day_one"
+	var filename = "input_day_1"
 	lines := GetFileLines(filename)
 
 	sum := 0
