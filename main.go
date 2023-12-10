@@ -8,4 +8,5 @@ func main() {
 	DayTwoPartTwo()
 
 	DayThreePartOne()
+	DayThreePartTwo()
 }
