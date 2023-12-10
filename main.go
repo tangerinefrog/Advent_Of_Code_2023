@@ -9,4 +9,6 @@ func main() {
 
 	DayThreePartOne()
 	DayThreePartTwo()
+
+	DayFourPartOne()
 }
